@@ -1,0 +1,19 @@
+{
+  "name": "@itquasar-ru/android-badge-demo-client",
+  "version": "1.0.0",
+  "description": "Client for 'Android Bade Demo' app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0x6368656174/android-badge-demo-client.git"
+  },
+  "author": "Pavel Puchkov <0x6368656174@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0x6368656174/android-badge-demo-client/issues"
+  },
+  "homepage": "https://github.com/0x6368656174/android-badge-demo-client#readme"
+}

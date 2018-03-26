@@ -1,0 +1,29 @@
+<h1>
+  Отправить сообщение на устройство
+</h1>
+
+<form [formGroup]="_form" (ngSubmit)="_submit()">
+  <div class="form-group">
+    <label for="token">Токен устройства</label>
+    <input id="token" class="form-control" formControlName="token" [ngClass]="_formControlClass('token')">
+    <small class="form-text" [ngClass]="_formHintClass('token')">Данное поле обязательно</small>
+  </div>
+  <div class="form-group">
+    <label for="title">Заголовок</label>
+    <input id="title" class="form-control" formControlName="title" [ngClass]="_formControlClass('title')">
+    <small class="form-text" [ngClass]="_formHintClass('title')">Данное поле обязательно</small>
+  </div>
+  <div class="form-group">
+    <label for="body">Текст</label>
+    <input id="body" class="form-control" formControlName="body" [ngClass]="_formControlClass('body')">
+    <small class="form-text" [ngClass]="_formHintClass('body')">Данное поле обязательно</small>
+  </div>
+  <div class="form-group">
+    <label for="badge">Цифра рядом с иконкой</label>
+    <input id="badge" class="form-control" type="number" formControlName="badge" [ngClass]="_formControlClass('badge')">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+
+<app-success-modal></app-success-modal>
