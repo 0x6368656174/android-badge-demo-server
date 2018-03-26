@@ -20,7 +20,7 @@ app.post('/', async (request, response) => {
 
   console.log(`Start send message to "${token}" sended`, {title, body, badge});
 
-  const payload: admin.messaging.MessagingPayload = {
+  const notificationPayload: admin.messaging.MessagingPayload = {
     notification: {
       title,
       body,
@@ -28,20 +28,33 @@ app.post('/', async (request, response) => {
   };
 
   if (badge) {
-    payload.data = {};
-    payload.data['badge'] = String(badge);
-    payload.notification.badge = String(badge);
+    notificationPayload.notification.badge = String(badge);
   }
 
-  const messageDevicesResponse = await messaging.sendToDevice(token, payload);
+  const notificationMessageDevicesResponse = await messaging.sendToDevice(token, notificationPayload);
 
-  console.log(`Message to "${token}" sended`, {title, body, badge}, messageDevicesResponse);
+  const resultData = {
+    messageDevicesResponses: {
+      notification: notificationMessageDevicesResponse,
+      data: null,
+    },
+  };
+
+  if (badge) {
+    const dataPayload = {
+      data: {
+        badge: String(badge),
+      },
+    };
+
+    resultData.messageDevicesResponses.data = await messaging.sendToDevice(token, dataPayload);
+  }
+
+  console.log(`Message to "${token}" sended`, notificationPayload, resultData);
 
   response.json({
-    success: messageDevicesResponse.failureCount === 0,
-    data: {
-      messageDevicesResponse,
-    },
+    success: notificationMessageDevicesResponse.failureCount === 0,
+    data: resultData,
   });
 });
 
