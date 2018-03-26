@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SendMessageFormComponent } from './send-message-form/send-message-form.component';
 
 const appRoutes: Routes = [
+  { path: '', component: SendMessageFormComponent },
+  { path: 'send', component: SendMessageFormComponent },
   { path: 'send/:token', component: SendMessageFormComponent },
 ];
 

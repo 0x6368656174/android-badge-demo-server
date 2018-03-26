@@ -3,7 +3,7 @@
 Демонстрационный бекенд для Android Badge Demo.
 
 Данный бекенд позволяет отправлять сообщения в приложения Android Badge Demo. Для отправки сообщения можно воспользоваться
-SPA приложением, расположенным по адресу https://android-badge-demo.firebaseapp.com/send.
+SPA приложением, расположенным по адресу https://android-badge-demo.firebaseapp.com.
 
 Бекенд в работе использует компоненты Google Firebase:
 - Hosting: для сервера написано простенькое SPA-приложение на Angular, которое содержит одну форму, позволяющую
